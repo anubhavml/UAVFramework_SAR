@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- Static camera for documentation stills (media.py stills): 1920x1080, HFOV 1.2 rad.  Not part of the evaluation. -->
+<sdf version='1.9'>
+  <model name='photo_cam'>
+    <static>true</static>
+    <link name="link">
+      <sensor name="cam" type="camera">
+        <camera><horizontal_fov>1.2</horizontal_fov>
+          <image><width>1920</width><height>1080</height></image>
+          <clip><near>0.1</near><far>300</far></clip></camera>
+        <always_on>1</always_on><update_rate>5</update_rate><topic>photo/rgb</topic>
+      </sensor>
+    </link>
+  </model>
+</sdf>

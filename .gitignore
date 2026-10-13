@@ -1,0 +1,25 @@
+# build outputs
+build/
+install/
+log/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# third-party sources, Python packages and downloads (install_workspace.sh fetches them)
+external/*
+!external/pip-constraints.txt
+!external/COLCON_IGNORE
+src/px4_msgs/
+src/px4_ros_com/
+src/Micro-XRCE-DDS-Agent/
+
+# UAV-GESTURE dataset (optional, demo's "Real people"): obtain it from its authors (README.md)
+UAVGesture/
+
+# files the demo, the evaluation and the training write (results of the paper: results/)
+eval/data/*
+!eval/data/real_clip_distances.json
+train/data/
+train/models/
+train/runs/

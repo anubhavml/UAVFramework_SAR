@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-License-Identifier: BSD-3-Clause -->
+<!-- Adapted from the x500_depth model of PX4-Autopilot (BSD-3-Clause). -->
+<!-- x500 with a level Intel RealSense D435i (the camera named in the paper), same mount as the
+     stock x500_depth.  Run PX4 with PX4_SYS_AUTOSTART=4002 PX4_SIM_MODEL=gz_x500_d435i. -->
+<sdf version='1.9'>
+  <model name='x500_d435i'>
+    <include merge='true'>
+      <uri>model://x500</uri>
+    </include>
+    <include merge='true'>
+      <uri>model://RealSense_D435i</uri>
+      <pose>.12 .03 .242 0 0 0</pose>
+    </include>
+    <joint name="CameraJoint" type="fixed">
+      <parent>base_link</parent>
+      <child>RealSense_D435i/base_link</child>
+      <pose relative_to="base_link">.12 .03 .242 0 0 0</pose>
+    </joint>
+  </model>
+</sdf>

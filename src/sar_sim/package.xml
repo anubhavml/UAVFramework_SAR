@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>sar_sim</name>
+  <version>0.1.0</version>
+  <description>Gazebo Harmonic SAR worlds (forest, city, wall + fog variants), the pointing SAR human models and the x500 RealSense D435i variant for the ROS 2 HITL UAV framework.</description>
+  <maintainer email="p20220020@pilani.bits-pilani.ac.in">Anubhav Pandey</maintainer>
+  <license>AGPL-3.0-only</license>
+  <!-- bundled Gazebo Fuel models and meshes, see THIRD_PARTY.md in the repository root -->
+  <license>CC0-1.0</license>
+  <license>CC-BY-4.0</license>
+  <!-- x500_d435i is adapted from PX4's x500_depth -->
+  <license>BSD-3-Clause</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

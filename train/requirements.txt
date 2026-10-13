@@ -1,0 +1,13 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+# Part of the ROS 2 human-in-the-loop UAV search-and-rescue framework; licensed under the
+# GNU Affero General Public License v3.0 (see LICENSE in the repository root).
+# Python packages (pip --user, with ../external/pip-constraints.txt) on top of ROS 2 Humble.
+# torch / torchvision are installed by install_workspace.sh (the build depends on the GPU driver).
+# Versions used for all published results.
+ultralytics==8.4.13          # rgbd_model.yolo11_sppf works around a bug of this exact version
+numpy==1.26.4
+opencv-python==4.8.1.78
+scipy>=1.11,<1.14
+pandas==2.3.3
+pyyaml
+imageio-ffmpeg==0.6.0        # eval/media.py videos (or keep the copied external/pylib)

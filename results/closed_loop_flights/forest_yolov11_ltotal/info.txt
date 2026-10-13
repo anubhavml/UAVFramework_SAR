@@ -1,0 +1,1 @@
+forest_yolov11_ltotal: world forest, model x500_depth, spawn 2.80,0.40,0.2,0,0,0, launch args: model:=train/runs/T4/weights/best.pt input_mode:=rgbd device:=0

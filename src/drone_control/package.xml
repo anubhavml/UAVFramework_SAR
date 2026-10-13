@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>drone_control</name>
+  <version>0.1.0</version>
+  <description>Human-in-the-loop gesture control for PX4 UAVs: YOLOv11 Unified-PDD gesture node and PX4 offboard control node (ROS 2 SAR HITL framework).</description>
+  <maintainer email="p20220020@pilani.bits-pilani.ac.in">Anubhav Pandey</maintainer>
+  <license>AGPL-3.0-only</license>
+
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>rosgraph_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>px4_msgs</depend>
+  <exec_depend>ros_gz_bridge</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

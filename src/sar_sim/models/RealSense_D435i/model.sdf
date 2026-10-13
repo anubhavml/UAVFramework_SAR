@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- Intel RealSense D435i (datasheet values): RGB 1920x1080, 69.4 deg HFOV; stereo depth 848x480,
+     87 deg HFOV, 0.28-10 m.  Depth noise (sigma ~ z^2) is added by drone_control sensor_sim
+     (Gazebo depth noise is constant-sigma only).  Topics match the OakD-Lite (camera, depth_camera).
+     gt_depth is a simulation-only helper: long-range z-depth with the RGB field of view, used to
+     render physically based fog (Koschmieder) on the RGB image; it is not part of the real sensor. -->
+<sdf version='1.9'>
+  <model name='RealSense_D435i'>
+    <pose>0 0 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+    <static>false</static>
+    <link name="RealSense_D435i/base_link">
+      <inertial>
+        <mass>0.072</mass>
+        <inertia>
+          <ixx>0.0000045</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>0.0000495</iyy><iyz>0</iyz><izz>0.0000495</izz>
+        </inertia>
+      </inertial>
+      <visual name="RealSense_D435i/visual">
+        <geometry><box><size>0.025 0.090 0.025</size></box></geometry>
+        <material><ambient>0.15 0.15 0.15 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material>
+      </visual>
+      <collision name="RealSense_D435i/collision">
+        <geometry><box><size>0.025 0.090 0.025</size></box></geometry>
+      </collision>
+      <sensor name="D435i_rgb" type="camera">
+        <pose>0.013 0 0 0 0 0</pose>
+        <camera>
+          <horizontal_fov>1.2112</horizontal_fov>
+          <image><width>1920</width><height>1080</height></image>
+          <clip><near>0.1</near><far>100</far></clip>
+          <noise><type>gaussian</type><mean>0</mean><stddev>0.007</stddev></noise>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <topic>camera</topic>
+      </sensor>
+      <sensor name="D435i_depth" type="depth_camera">
+        <pose>0.013 0 0 0 0 0</pose>
+        <camera>
+          <horizontal_fov>1.5184</horizontal_fov>
+          <image><width>848</width><height>480</height><format>R_FLOAT32</format></image>
+          <clip><near>0.28</near><far>10.0</far></clip>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <topic>depth_camera</topic>
+      </sensor>
+      <sensor name="gt_depth" type="depth_camera">
+        <pose>0.013 0 0 0 0 0</pose>
+        <camera>
+          <horizontal_fov>1.2112</horizontal_fov>
+          <image><width>480</width><height>270</height><format>R_FLOAT32</format></image>
+          <clip><near>0.1</near><far>300</far></clip>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>15</update_rate>
+        <topic>camera_gt_depth</topic>
+      </sensor>
+      <gravity>true</gravity>
+      <velocity_decay/>
+    </link>
+  </model>
+</sdf>

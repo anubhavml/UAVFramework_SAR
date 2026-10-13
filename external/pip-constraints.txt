@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+# Part of the ROS 2 human-in-the-loop UAV search-and-rescue framework; licensed under the
+# GNU Affero General Public License v3.0 (see LICENSE in the repository root).
+# Versions pinned for ROS 2 Humble (its Python packages need numpy 1.x)
+numpy==1.26.4
+setuptools==68.2.2
+pip==23.2.1
+wheel==0.41.2

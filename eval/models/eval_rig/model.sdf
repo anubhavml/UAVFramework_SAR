@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- Static camera rig for the offline evaluation: one RGB camera and both depth sensors at the
+     same pose, so one capture serves both simulated vehicles.
+       rgb          1920x1080, HFOV 1.204  (OakD-Lite IMX214; the D435i RGB is 1.211, same size)
+       depth_oakd   640x480,   HFOV 1.274, 0.2-19.1 m   (OakD-Lite stereo, as on x500_depth)
+       depth_d435i  848x480,   HFOV 1.518, 0.28-10 m    (RealSense D435i; noise added offline)
+       gt_depth     480x270,   HFOV 1.204, 0.1-300 m    (simulation-only, for Koschmieder fog) -->
+<sdf version='1.9'>
+  <model name='eval_rig'>
+    <static>true</static>
+    <link name="link">
+      <visual name="v"><geometry><box><size>0.03 0.09 0.03</size></box></geometry></visual>
+      <sensor name="rgb" type="camera">
+        <camera><horizontal_fov>1.204</horizontal_fov>
+          <image><width>1920</width><height>1080</height></image>
+          <clip><near>0.1</near><far>100</far></clip></camera>
+        <always_on>1</always_on><update_rate>10</update_rate><topic>rig/rgb</topic>
+      </sensor>
+      <sensor name="depth_oakd" type="depth_camera">
+        <camera><horizontal_fov>1.274</horizontal_fov>
+          <image><width>640</width><height>480</height><format>R_FLOAT32</format></image>
+          <clip><near>0.2</near><far>19.1</far></clip></camera>
+        <always_on>1</always_on><update_rate>10</update_rate><topic>rig/depth_oakd</topic>
+      </sensor>
+      <sensor name="depth_d435i" type="depth_camera">
+        <camera><horizontal_fov>1.5184</horizontal_fov>
+          <image><width>848</width><height>480</height><format>R_FLOAT32</format></image>
+          <clip><near>0.28</near><far>10.0</far></clip></camera>
+        <always_on>1</always_on><update_rate>10</update_rate><topic>rig/depth_d435i</topic>
+      </sensor>
+      <sensor name="gt_depth" type="depth_camera">
+        <camera><horizontal_fov>1.204</horizontal_fov>
+          <image><width>480</width><height>270</height><format>R_FLOAT32</format></image>
+          <clip><near>0.1</near><far>300</far></clip></camera>
+        <always_on>1</always_on><update_rate>10</update_rate><topic>rig/gt_depth</topic>
+      </sensor>
+    </link>
+  </model>
+</sdf>
